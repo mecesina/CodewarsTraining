@@ -56,5 +56,16 @@ namespace TestProject
 
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        [DataRow(1, 0)]
+        [DataRow(12, 4)]
+        [DataRow(16, 4)]
+        [DataRow(71, 9)]
+        public void TestShortestStepsToNum(int n, int expected)
+        {
+            int result = MathematicalOperations.ShortestStepsToNum(n);
+            Assert.IsTrue(result == expected);
+        }
     }
 }

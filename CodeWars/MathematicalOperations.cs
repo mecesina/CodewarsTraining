@@ -35,5 +35,26 @@ namespace CodeWars
         {
             return Math.Sqrt(n) % 1 == 0;
         }
+        //The method that calculates and returns the shortest number of steps to from num to 1 (given that 
+        //one step is either num +=1 or num*=2
+        public static int ShortestStepsToNum(int num)
+        {
+            int numberOfSteps = 0;
+            for(int i = 10000; i >= 1; i--)
+            {
+                if (num == 1)
+                    return 0;
+                if (num % 2 != 0)
+                {
+                    num -= 1;
+                    numberOfSteps++;
+                    i = num;
+                }
+                num /= 2;
+                numberOfSteps++;
+                i = num;
+            }
+            return numberOfSteps;
+        }
     }
 }
