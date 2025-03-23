@@ -67,5 +67,15 @@ namespace TestProject
             int result = MathematicalOperations.ShortestStepsToNum(n);
             Assert.IsTrue(result == expected);
         }
+
+        [TestMethod]
+        [DataRow("iiisdoso", new int[] {8, 64 })]
+        [DataRow("iiisdosodddddiso", new int[] { 8, 64, 3600 })]
+        public void TestIntepreteInstructions(string w, int[] expected)
+        {
+            int[] actual = MathematicalOperations.IntepreteInstructions(w);
+
+            CollectionAssert.AreEqual(expected, actual);
+        }
     }
 }

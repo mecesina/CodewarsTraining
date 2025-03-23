@@ -56,5 +56,39 @@ namespace CodeWars
             }
             return numberOfSteps;
         }
+        //Method that reads the given instructions for calculation from char and outputs the values
+        public static int[] IntepreteInstructions(string data)
+        {
+            int startPoint = 0;
+            int outputCount = 0;
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (data[i] == 'o')
+                    outputCount++;
+            }
+
+            int[] result = new int[outputCount];
+            int index = 0;
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                switch (data[i])
+                {
+                    case 'i':
+                        startPoint += 1;
+                        break;
+                    case 'd':
+                        startPoint -= 1;
+                        break;
+                    case 's':
+                        startPoint *= startPoint;
+                        break;
+                    case 'o':
+                        result[index++] = startPoint;
+                        break;
+                }
+            }
+            return result;
+        }
     }
 }
